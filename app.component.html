@@ -1,0 +1,150 @@
+<div class="header"><h1>ANGULAR TRAINING NOTES</h1></div>
+<table class="table1">
+    <tr>
+        <th colspan="2" style="text-align: center;border:2px solid black;">Angular file directory information</th>
+    </tr>
+    <tr>
+        <th style="border:2px solid black;">File | Folde</th><th style="border:2px solid black;">Description</th>
+    </tr>
+    <tr><td>.editorconfig</td><td>Configuration for code editors.</td></tr>
+    <tr><td>README.md</td><td>Introductory documentation for the root app.</td></tr>
+    <tr><td>angular.json</td><td>CLI configuration defaults for all projects in the workspace, including 
+        configuration options for build, serve, and test tools that the CLI 
+        uses, such as TSLint, Karma, and Protractor.</td></tr>
+    <tr><td>package.json</td><td>Configures npm package dependencies that are available 
+        to all projects in the workspace.(name dependency)</td></tr>
+    <tr><td>package-lock.json</td><td>Provides version information for all packages 
+        installed into node_modules by the npm client.(tree structure of all dependency)</td></tr>
+    <tr><td>src/</td><td>Source files for the root-level application project.</td></tr>
+    <tr><td>node_modules/</td><td>Provides npm packages to the entire workspace. 
+        Workspace-wide node_modules dependencies are visible to all projects.</td></tr>
+    <tr><td>tsconfig.json</td><td>The base TypeScript configuration for projects in the 
+        workspace. All other configuration files inherit from this base file.</td></tr>
+    <tr><td>tslint.json</td><td>Default TSLint configuration for projects in the 
+        workspace.(linterrors - repeated semicolon, unwanted line breaks and space.)</td></tr>
+    <tr><td>app/</td><td>Contains the component files in which your application 
+        logic and data are defined.</td></tr>
+    <tr><td>assets/</td><td>Contains image and other asset files to be copied as-is 
+        when you build your application.</td></tr>
+    <tr><td>environments/</td><td>Contains build configuration options for particular 
+        target environments. By default there is an unnamed standard 
+        development environment and a production ("prod") environment. 
+        You can define additional target environment configurations.</td></tr>
+    <tr><td>favicon.ico</td><td>An icon to use for this application in the bookmark bar.</td></tr>
+    <tr><td>index.html</td><td>The main HTML page that is served when someone visits 
+        your site.</td></tr>
+    <tr><td>main.ts</td><td>The main entry point for your application. Compiles the 
+        application with the JIT compiler and bootstraps the application's root 
+        module (AppModule) to run in the browser. You can also use the AOT 
+        compiler without changing any code by appending the --aot flag to 
+        the CLI build and serve commands.</td></tr>
+    <tr><td>polyfills.ts</td><td>Provides polyfill scripts for browser support.</td></tr>
+    <tr><td>styles.sass</td><td>Lists CSS files that supply styles for a project. 
+        The extension reflects the style preprocessor you have configured for 
+        the project.</td></tr>
+    <tr><td>test.ts</td><td>The main entry point for your unit tests, with some 
+        Angular-specific configuration. You don't typically need to edit this 
+        file.</td></tr>
+    <tr><td colspan="2">src/app/ FILES </td></tr>
+    <tr><td>app/app.component.ts</td><td>Defines the logic for the app's root component, 
+        named AppComponent. The view associated with this root component becomes 
+        the root of the view hierarchy as you add components and services to 
+        your application.</td></tr>
+    <tr><td>app/app.component.html</td><td>Defines the HTML template associated with 
+        the root AppComponent.</td></tr>
+    <tr><td>app/app.component.css</td><td>Defines the base CSS stylesheet for the root 
+        AppComponent.</td></tr>
+    <tr><td>app/app.component.spec.ts</td><td>Defines a unit test for the root AppComponent.</td></tr>
+    <tr><td>app/app.module.ts</td><td>Defines the root module, named AppModule, that 
+        tells Angular how to assemble the application. Initially declares 
+        only the AppComponent. As you add more components to the app, they must 
+        be declared here.</td></tr>
+    <tr><td>app/package.json</td><td>This file is generated only in applications created 
+        using --strict mode. This file is not used by package managers. It is 
+        used to tell the tools and bundlers whether the code under this 
+        directory is free of non-local side-effects.</td></tr>
+</table>
+
+
+<div class="dataBinding">
+    <h1>Two types of Data Binding : Interpollation and Property binding</h1>
+    <ul>
+        <li>Interpolation refers to embedding expressions into marked up text. By default, interpolation 
+            uses as its delimiter the double curly braces,.</li>
+        <li>In the property binding, a template expression appears in quotes to the right of the = symbol 
+            as in .</li>
+    </ul>
+    <h3>Data Binding Examples</h3>
+    <table border="2px solid black">
+        <tr>
+            <th colspan="3">data was binded using interpollation. check the code to know the data binding via interpollation</th>
+        </tr>
+        <tr>
+            <th colspan="3">Employee Details</th>
+        </tr>
+        <tr>
+            <td>name</td><td>Post</td><td>Location</td>
+        </tr>
+        <tr>
+            <td>{{empDetails[0].name}}</td><td>{{empDetails[0].post}}</td><td>{{empDetails[0].location}}</td>
+        </tr>
+        <tr>
+            <td>{{empDetails[1].name}}</td><td>{{empDetails[1].post}}</td><td>{{empDetails[1].location}}</td>
+        </tr>
+    </table>
+</div>
+
+
+<div style="background-color: black;color: white;">
+    <h2>The below image is inserted using property binding check the code to understand</h2>
+    <img [src]="compLogo" />
+</div>
+
+
+<div class="dataBinding">
+    <h2>Style Binding</h2>
+    <table>
+        <tr>
+            <th colspan="2">buttons below are some examples of style binding</th>
+        </tr>
+        <tr>
+            <td><button style="color: black;" [style.font-weight]="isBold ? 'bold' : 'normal'">Button1</button></td>
+            <td>button styled using inline style binding</td>
+        </tr>
+        <tr>
+            <td><button style="color: black" [ngStyle]="multiStyles()">Button2</button></td>
+            <td>button styled using multiple inline style binding</td>
+        </tr>
+        <tr>
+            <td colspan="2">Class Binding Examples</td>
+        </tr>
+        <tr>
+            <td><button >Button1</button></td>
+            <td>button without any class</td>
+        </tr>
+        <tr>
+            <td><button class="classUnderline">Button2</button></td>
+            <td>button with one class defined in css file</td>
+        </tr>
+        <tr>
+            <td><button class="classUnderline classItalic classColor">Button3</button></td>
+            <td>button with three classes defined in css file</td>
+        </tr>
+        <tr>
+            <td><button class="classUnderline" [class]="classesToApply">Button4</button></td>
+            <td>button with one class defined in css file another defined using property binding</td>
+        </tr>
+        <tr>
+            <td><button class="classUnderline" [class.classColor]="classApplyColor">Button5</button></td>
+            <td>button with one class defined in css file another defined using property binding</td>
+        </tr>
+        <tr>
+            <td><button class="classUnderline" [class.classColor]="!classApplyColor">Button6</button></td>
+            <td>button with one class defined in css file another defined using property binding</td>
+        </tr>
+        <tr>
+            <!--<td><button class="classUnderline" [ngClass]="addClasses()">Button7</button></td>
+            <td>button with one class defined in css file another defined using property binding</td>-->
+        </tr>
+    </table>    
+</div>
